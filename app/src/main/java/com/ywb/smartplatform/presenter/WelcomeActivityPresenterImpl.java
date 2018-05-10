@@ -22,7 +22,7 @@ import okhttp3.ResponseBody;
 
 /**
  * Created by ywb on 2018/5/3.
- * 真正的广告不只有一张图片，需要扩展
+ * 模拟广告
  */
 
 public class WelcomeActivityPresenterImpl extends WelcomeActivityPresenter {
@@ -44,11 +44,25 @@ public class WelcomeActivityPresenterImpl extends WelcomeActivityPresenter {
     getAdvertisementFromCache();
   }
 
+  private void getAdvertisementFromCache() {
+    advBitmap = getBitmapFromLocal(advName);
+    if (advBitmap != null) {
+      view.showAdvertisement(advBitmap, adnvertisementUrl);
+      startCountDown(3);
+    } else {
+      view.gotoMain();
+      getAdvertisementFromNet();
+    }
+  }
+
+  /**
+   * 需要在子线程执行，而且不能随着activity的destory而中止
+   */
   private void getAdvertisementFromNet() {
     WelcomeService welcomeService = RetrofitServiceCreate
-        .createdService(WelcomeService.class,testPicUrl);
+        .createdService(WelcomeService.class,testBaseUrl);
     Observable<ResponseBody> advertisementBitmap = welcomeService.getAdvertisementBitmap(
-        testBaseUrl);
+        testPicUrl);
     advertisementBitmap.
         subscribeOn(Schedulers.io())    //完全执行在子线程
         .subscribe(new Observer<ResponseBody>() {
@@ -77,23 +91,13 @@ public class WelcomeActivityPresenterImpl extends WelcomeActivityPresenter {
         });
   }
 
-  private void getAdvertisementFromCache() {
-    advBitmap = getBitmapFromLocal(advName);
-    if (advBitmap != null) {
-      view.showAdvertisement(advBitmap, adnvertisementUrl);
-      startCountDown(3);
-    } else {
-      view.gotoMain();
-      getAdvertisementFromNet();
-    }
-  }
-
   /**
    * 倒计时
+   * todo 此页面两种rxjava需要封装1.可以中止 2.运行结束后自动十方
    */
   private void startCountDown(final int count) {
     Observable.interval(1, TimeUnit.SECONDS)
-        .take(count)//计时次数
+        .take(count+1)//计时次数
         .map(new Function<Long, Integer>() {
           @Override
           public Integer apply(Long along) throws Exception {
@@ -152,12 +156,7 @@ public class WelcomeActivityPresenterImpl extends WelcomeActivityPresenter {
     return null;
   }
 
-
-  /**
-   * 下载图片并本地缓存，需要在子线程执行
-   */
   private void saveAdvertisementCache(Bitmap bitmap) {
-//    LocaCacheUtils.saveObjectCache(advertisementBean,advObjecteDir,advName);
     LocaCacheUtils.saveBitmapCache(bitmap, advPictureDir, advName);
   }
 

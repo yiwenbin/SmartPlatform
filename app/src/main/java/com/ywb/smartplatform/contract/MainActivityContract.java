@@ -4,7 +4,7 @@ import com.ywb.smartplatform.base.BaseRxPresenter;
 
 /**
  * Created by ywb on 2018/4/18.
- * 包含v和p的接口,写在一起方便阅读
+ *
  */
 
 public interface MainActivityContract {
