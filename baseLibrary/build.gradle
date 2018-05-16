@@ -47,7 +47,7 @@ dependencies {
 //    compile "jp.wasabeef:glide-transformations:$rootProject.glideTransformationVersion"
 
     //LeakCanary
-    debugImplementation "com.squareup.leakcanary:leakcanary-android:$rootProject.leakcanaryVersion"
-    releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.leakcanaryVersion"
+    debugCompile "com.squareup.leakcanary:leakcanary-android:$rootProject.leakcanaryVersion"
+    releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:$rootProject.leakcanaryVersion"
 
 }
