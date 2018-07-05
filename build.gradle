@@ -28,14 +28,21 @@ task clean(type: Delete) {
 
 // Define versions in a single place
 ext {
+
+    isModule = false
+    moduleBeauty = false
+    moduleNews = false
+
     // Sdk and tools
     minSdkVersion = 18
     targetSdkVersion = 25
-    compileSdkVersion = 25
-    buildToolsVersion = '25.0.3'
+    compileSdkVersion = 27
+    buildToolsVersion = '27.0.3'
+    versionCode = 1
+    versionName ="1.0.0"
 
     // App dependencies
-    supportLibraryVersion = '25.4.0'
+    supportLibraryVersion = '26.1.0'
     retrofitVersion = '2.2.0'
     okhttploggingVersion = '3.4.1'
     okhttpVersion = '3.4.1'
@@ -45,4 +52,5 @@ ext {
     glideVersion = '3.6.1'
     glideokhttpVersion = '1.3.1'
     leakcanaryVersion = "1.5.4"
+    multidexVersion = "1.0.3"
 }

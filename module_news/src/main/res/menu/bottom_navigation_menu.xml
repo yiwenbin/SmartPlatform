@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_item_home"
+        android:title="主页"/>
+
+    <item
+        android:id="@+id/menu_item_shop"
+        android:title="购物" />
+
+    <item
+        android:id="@+id/menu_item_message"
+        android:title="消息" />
+
+    <item
+        android:id="@+id/menu_item_friends_circle"
+        android:title="朋友圈" />
+
+    <item
+        android:id="@+id/menu_item_personal"
+        android:title="我的" />
+</menu>
