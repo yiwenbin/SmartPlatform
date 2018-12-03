@@ -6,19 +6,21 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.zbiti.module_news.R;
 import com.zbiti.smart_platform_base.base.MVPFragment;
 import com.zbiti.module_news.contract.HomeFragmentContract.HomeFragmentPresenter;
 import com.zbiti.module_news.contract.HomeFragmentContract.HomeFragmentView;
 import com.zbiti.module_news.presenter.HomeFragmentPresenterImpl;
 import com.zbiti.module_news.view.adapter.HomeFragmentPagerAdapter;
+import com.zbiti.smart_platform_base.constants.ARouterConfig;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by ywb on 2018/4/19.
  */
-
+@Route(path = ARouterConfig.NEWS_FRAGMENT)
 public class HomeFragment extends MVPFragment<HomeFragmentPresenter> implements HomeFragmentView{
 
   private Toolbar toolBar;

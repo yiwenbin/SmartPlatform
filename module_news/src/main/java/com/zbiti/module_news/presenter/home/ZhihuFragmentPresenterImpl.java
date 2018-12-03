@@ -1,7 +1,7 @@
 package com.zbiti.module_news.presenter.home;
 
 import android.util.Log;
-import com.example.apk.retrofit.RetrofitServiceCreate;
+import com.zbiti.smart_platform_base.retrofit.RetrofitServiceCreate;
 import com.zbiti.module_news.contract.home.ZhihuFragmentContract;
 import com.zbiti.module_news.model.zhihu.ZhihuDailyItemBean;
 import com.zbiti.module_news.model.zhihu.ZhihuDailyListBean;

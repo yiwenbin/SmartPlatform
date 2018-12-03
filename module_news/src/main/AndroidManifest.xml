@@ -1,7 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="com.zbiti.module_news">
-  <application>
-    <activity android:name="com.zbiti.module_news.view.activity.MainActivity"/>
-  </application>
+
 
 </manifest>

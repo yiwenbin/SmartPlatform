@@ -1,4 +1,4 @@
-if (Boolean.valueOf(rootProject.ext.moduleBeauty)) {
+if (Boolean.valueOf(rootProject.ext.isModule)) {
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'
@@ -15,8 +15,19 @@ android {
         versionName rootProject.ext.versionName
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //MultiDex分包方法
+        multiDexEnabled true
 
+        //Arouter路由配置
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+                includeCompileClasspath = true
+            }
+        }
     }
+
+
 
     buildTypes {
         release {
@@ -45,5 +56,5 @@ android {
 }
 
 dependencies {
-    api project(':smart_platform_base')
+    api project(':common_base')
 }

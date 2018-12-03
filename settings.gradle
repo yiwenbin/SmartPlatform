@@ -1,1 +1,1 @@
-include ':app', ':atmos_retrofit', ':smart_platform_base', ':atmos_bridge', ':module_beauty', ':module_news'
+include ':app', ':common_base', ':module_beauty', ':module_news', ':module_main', ':module_main'

@@ -1,10 +1,9 @@
-package com.zbiti.module_news.view.fragment;
+package com.ywb.module_main;
 
 
 import android.support.v4.app.Fragment;
-import com.zbiti.module_news.view.fragment.home.DoubanFragment;
-import com.zbiti.module_news.view.fragment.home.JinriFragment;
-import com.zbiti.module_news.view.fragment.home.ZhihuFragment;
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.zbiti.smart_platform_base.constants.ARouterConfig;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,9 +34,11 @@ public class FragmentFactory {
       return fragment;
     }
     switch (fragmentCode){
-//      case HomeFragmentCode:
-//        fragment = new HomeFragment();
-//        break;
+      case HomeFragmentCode:
+        fragment = (Fragment) ARouter.getInstance()
+            .build(ARouterConfig.NEWS_FRAGMENT)
+            .navigation();
+        break;
 //      case ShopFragmentCode:
 //        fragment = new ShopFragment();
 //        break;
@@ -50,15 +51,15 @@ public class FragmentFactory {
 //      case MineFragmentCode:
 //        fragment = new MineFragment();
 //        break;
-      case ZhihuFragmentCode:
-        fragment = new ZhihuFragment();
-        break;
-      case JinriFragmentCode:
-        fragment = new JinriFragment();
-        break;
-      case DoubanFragmentCode:
-        fragment = new DoubanFragment();
-        break;
+//      case ZhihuFragmentCode:
+//        fragment = new ZhihuFragment();
+//        break;
+//      case JinriFragmentCode:
+//        fragment = new JinriFragment();
+//        break;
+//      case DoubanFragmentCode:
+//        fragment = new DoubanFragment();
+//        break;
 
       default:
         break;
